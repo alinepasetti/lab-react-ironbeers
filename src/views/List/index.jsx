@@ -9,8 +9,10 @@ export class List extends Component {
   constructor() {
     super();
     this.state = {
-      beers: []
+      beers: [],
+      query: ''
     };
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
     this.fetchData();
@@ -24,11 +26,31 @@ export class List extends Component {
         console.log(error);
       });
   }
+  handleChange(event) {
+    event.preventDefault();
+    const value = event.target.value;
+    const input = event.target.name;
+    this.setState({ [input]: value });
+  }
+  get filteredBeers() {
+    let filteredBeers = this.state.beers.filter(beer =>
+      beer.name.toLowerCase().includes(this.state.query)
+    );
+
+    return filteredBeers;
+  }
   render() {
     return (
       <div>
         <NavBar />
-        {this.state.beers.map(beer => {
+        <input
+          onChange={this.handleChange}
+          name="query"
+          id="search"
+          placeholder="Search for a beer"
+          value={this.state.query}
+        />
+        {this.filteredBeers.map(beer => {
           return (
             <Link to={`/beers/${beer._id}`} className="product__card" key={beer._id}>
               <img src={beer.image_url} alt={beer.name} />

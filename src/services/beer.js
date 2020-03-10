@@ -1,4 +1,5 @@
 import axios from 'axios';
+import NewBeer from '../views/NewBeer';
 
 const instance = axios.create({ baseURL: 'https://ih-beers-api2.herokuapp.com/beers' });
 
@@ -24,4 +25,14 @@ const findOne = id =>
       .catch(reject);
   });
 
-export { listAll, findOne };
+const saveBeer = NewBeer =>
+  new Promise((resolve, reject) => {
+    instance
+      .post('/new', NewBeer)
+      .then(beer => {
+        resolve(beer);
+      })
+      .catch(reject);
+  });
+
+export { listAll, findOne, saveBeer };
