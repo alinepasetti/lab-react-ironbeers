@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+  input {
+    margin: 0.7em;
+    padding: 0.7em;
+    background-color: rgba(200, 200, 200, 0.4);
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,13 @@
+.product__card {
+  padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+  border-bottom: 1px solid gray;
+  img {
+    height: 100px;
+    margin: 0 1em;
+  }
+}

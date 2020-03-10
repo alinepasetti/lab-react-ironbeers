@@ -1,0 +1,27 @@
+.home__header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/images/beers.png');
+  background-color: rgba(40, 39, 46, 0.747);
+  background-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 640px;
+  // padding: 200px;
+  a {
+    margin: 1em auto;
+    width: 10em;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 3px;
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+  }
+}
